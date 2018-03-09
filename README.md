@@ -14,8 +14,8 @@ $. Deploy: `serverless deploy` (You'll need to configure the serverless CLI with
 
 ## Built With
 
-* [the serverless framework](https://serverless.com/) - APIs to enable devs building realtime features
-* [AWS Lambda Functions](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) - Dependency Management=
+* [the serverless framework](https://serverless.com/) - CLI tool for building serverless apps
+* [AWS Lambda Functions](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) - serverless cloud provider
 * [Node.js](nodejs.org)
 
 ## Acknowledgments
