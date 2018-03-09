@@ -1,16 +1,52 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+const addProduct = require('./handlers/create');
+const viewProduct = require('./handlers/view');
+const listProducts = require('./handlers/list');
+const removeProduct = require('./handlers/remove');
 
-  callback(null, response);
+const create = (event, context, callback) => {
+    const data = JSON.parse(event.body);
+    addProduct(data)
+        .then(result => {
+            const response = { body: JSON.stringify(result) };
+            callback(null, response);
+        })
+        .catch(callback);
+};
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+const list = (event, context, callback) => {
+    listProducts()
+        .then(result => {
+            const response = { body: JSON.stringify(result) };
+            callback(null, response);
+        })
+        .catch(callback);
+};
+
+const view = (event, context, callback) => {
+    viewProduct(event.pathParameters.id)
+        .then(result => {
+            const response = { body: JSON.stringify(result) };
+            callback(null, response);
+        })
+        .catch(callback);
+};
+
+
+const remove = (event, context, callback) => {
+    removeProduct(event.pathParameters.id)
+        .then(result => {
+            const response = { body: JSON.stringify({message: 'Product removed.'}) };
+            callback(null, response);
+        })
+        .catch(callback);
+};
+
+
+module.exports = {
+    create,
+    view,
+    remove,
+    list
 };
