@@ -16,7 +16,7 @@ provider:
       Resource:
          Fn::Join:
            - ""
-           - - "arn:aws:dynamodb:::"
+           - - "arn:aws:dynamodb:*:*:table/"
              - Ref: ProductsDynamoDbTable
 
 functions:
@@ -27,8 +27,8 @@ functions:
           path: products
           method: post
           cors: true
-  index:
-    handler: handler.index
+  list:
+    handler: handler.list
     events:
       - http:
           path: products
@@ -41,15 +41,8 @@ functions:
           path: products/{id}
           method: get
           cors: true
-  update:
-    handler: handler.update
-    events:
-      - http:
-          path: products/{id}
-          method: put
-          cors: true
-  delete:
-    handler: handler.delete
+  remove:
+    handler: handler.remove
     events:
       - http:
           path: products/{id}
