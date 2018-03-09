@@ -4,17 +4,15 @@ const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const uuid = require('uuid');
 
-module.exports = (event) => {
-    const body = JSON.parse(event.body);
-    const data = {
-        name: body.name,
-        id: uuid.v1(),
-        addedAt: Date.now(),
-    };
-
+module.exports = (data) => {
     const params = {
         TableName: 'products',
-        Item: data
+        Item: {
+            name: data.name,
+            quantity: data.quantity,
+            id: uuid.v1(),
+            addedAt: Date.now(),
+        }
     };
     return dynamoDb.put(params).promise()
         .then(result => params.Item)
