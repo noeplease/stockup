@@ -1,12 +1,12 @@
 # stockup
-REST API for stock management, built with the Serverless framework
+REST API for stock management, built with the Serverless framework. [Here's a walkthrough]()
 
 ## Getting Started
 
 1. Install the serverless framework: `npm install -g serverless`
 2. Run `serverless install --url https://github.com/shalvah/stockup` to install the service
 3. Install dependencies: `cd stockup && npm install`
-$. Deploy: `serverless deploy` (You'll need to configure the serverless CLI with your AWS credentials; follow [these instructions](https://www.youtube.com/watch?v=HSd9uYj2LJA))
+4. Deploy: `serverless deploy` (You'll need to configure the serverless CLI with your AWS credentials; follow [these instructions](https://www.youtube.com/watch?v=HSd9uYj2LJA))
 
 ### Prerequisites
 - Node.js v6.5.0 or greater
