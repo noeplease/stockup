@@ -1,5 +1,5 @@
 # stockup
-REST API for stock management, built with the Serverless framework. [Here's a walkthrough]()
+REST API for stock management, built with the Serverless framework. [Here's a walkthrough](https://blog.pusher.com/rest-api-serverless-framework/)
 
 ## Getting Started
 
